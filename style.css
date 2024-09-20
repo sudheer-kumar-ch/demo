@@ -212,10 +212,17 @@
     width: 80%;
 }
 .inputs-bg-container{
-    background: rgba(43, 45, 43, 0.4);
+    background-color: rgba(43, 45, 43, 0.4);
     padding:35px;
     width:80%;
     margin-top:20px;
+}
+.inputs-bg-container2{
+    background-color: #74696d;
+    padding:35px;
+    width:100%;
+    margin-top:20px;
+    border-radius: 10px;
 }
 
 .label-text{
@@ -553,4 +560,113 @@
 }
 .dropdown-margin-left2{
     margin-left: 30px;
+}
+.text-warning-size{
+    font-size: 10px;
+    width:80%;
+}
+/* Basic styles for the spinner */
+.spinner {
+    border: 8px solid #f3f3f3; /* Light gray */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite; /* Spin animation */
+    margin: auto;
+    display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Centering the spinner */
+.spinner-container {
+    background-color: #ffffff;
+    height: 100vh; /* Full viewport height */
+    display: none;
+}
+
+.search-result-margin{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.kondapur-premier-room-search-image{
+    border-radius: 25px;
+    height: 50vh;
+    width:50vw;
+    margin-bottom: 20px;
+}
+
+.search-font{
+    font-size: 20px;
+    font-weight: bold;
+}
+.border-radius{
+    border-radius: 10px;
+}
+.bg-border{
+    border:1px gray;
+    border-radius: 2px;
+    border-style: solid;
+}
+.gray-color{
+    color:gray;
+}
+.price-details-padding{
+    padding-left: 135px;
+    padding-right: 135px;
+}
+.inputs-width{
+    width: 100%;
+}
+.font-size-form{
+    font-size: 13px;
+}
+.font-size-form2{
+    font-size: 10px;
+}
+.form-bg{
+    background-color: skyblue;
+    padding:20px;
+}
+.form-input-border{
+    border-top:0px;
+    border-left:0px;
+    border-right: 0px;
+    border-bottom: 1px solid;
+    width: 100%;
+    background-color: skyblue;
+    outline: none; /* Remove outline */
+    box-shadow: none; /* Optional: remove any box-shadow */
+}
+
+.carousel-width-form{
+    width:60%;
+}
+.form-width{
+    width: 40%;
+}
+.tax-size{
+    font-size:14px;
+}
+.text-warning-size2{
+    font-size: 13px;
+    color:#b91d51;
+}
+.message-box{
+    border:gray;
+    width:90%;
+    height: 50px;
+    padding: 8px;
+    font-size: 15px;
+    border-top:1px solid rgb(196, 194, 194);
+}
+.userSent{
+    width:70%;
+    border-radius: 10px;
+    background-color: #495057;
+    padding: 10px;
 }

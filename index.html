@@ -112,7 +112,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                 <label for="setLocation" class="label-text">Select Location</label>
                 <div class="pl-2 location-white-bg">
                 <select id="setLocation" class="form-control input-icon">
-                  <option selected>Select Location</option>
+                  <option value="Select Location" selected>Select Location</option>
                   <option value="Kondapur" >Kondapur</option>
                   <option value="Jubilee Hills">Jubilee Hills</option>
                   <option value="Hitech City">Hitech City</option>
@@ -120,6 +120,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                   <option value="Gachibowli">Gachibowli</option>
                 </select>
               </div>
+              <p id="locationWarningText" class="text-danger bg-white mt-1 d-none text-warning-size">*Please select location</p>
               </div>
               <!--LOCATION INPUTS END-->
 
@@ -128,8 +129,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                 <label for="status" class="label-text">Select Stay Type</label>
                 
                 <select id="status" class="form-control input-icon2">
-                  <option>Select Location</option>
-                  <option value="Select Stay Typer" selected>Select Stay Type</option>
+                  <option value="Select Stay Type" selected>Select Stay Type</option>
                   <option value="Premier Room">Premier Room</option>
                   <option value="One-bedroom Suite">One-bedroom Suite</option>
                   <option value="Two-bedroom Suite">Two-bedroom Suite</option>
@@ -140,25 +140,28 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                   <option value="Studio Supreme">Studio Supreme</option>
                   <option value="Excecutive Room">Excecutive Room</option>
                 </select>
-              
+                <p id="stayTypeWarningText" class="text-danger bg-white mt-1 d-none text-warning-size">*Please select stayType</p>
               </div>
               <!--SELECT STAY TYPE INPUTS END-->
               <!---->
               <div class="d-flex flex-column">
                 <label for="selectDate" class="label-text">Check In - Check Out</label>
-                <input id="selectDate"  type="date" class="input-field2 input-icon3" ></input>
+                <input id="dateInput"  type="date" min="" class="input-field2 input-icon3" ></input>
+                
               </div>
               <div class="d-flex flex-column">
                 <label for="members" class="label-text">Guests</label>
-                <input id="members" type="text" class="input-icon4" value placeholder="Room1 - Adult1 - 0Child"></input>
+                <input id="members" type="text" class="input-icon4" value placeholder="Room2 - Adult2 - 1Child"></input>
               </div>
-              <button class="input-button">Find <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              <button onclick="findFunction()" class="input-button">Find <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                       d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
                   </svg></span></button>
             </div><!--HOME BG IMAGE INPUTS BG CONTAINER END-->
           </div>
+
+
 
         </div><!--HOME BG IMAGE CONTAINER END-->
         <div class="d-flex justify-content-center">
@@ -865,7 +868,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     <div id="aboutSkylaSection" class="mb-5 d-none">
       <div class="d-flex flex-row p-5">
         
-        <div id="homeIconInAboutSkyla"><!--ABOUT SKYLA HOME ICON-->
+        <!--ABOUT SKYLA HOME ICON-->
+        <div id="homeIconInAboutSkyla">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house"
             viewBox="0 0 16 16">
             <path
@@ -1157,7 +1161,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                       </p>
                     </div>
 
-
                   </div>
                 </div>
 
@@ -1197,9 +1200,311 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     </div>
     <!--WHY SKYLA ABOUT SKYLA END-->
   
+    <!--SPINNER-->
+    <div id="spinnerContainer" class="spinner-container">
+      <div class="spinner" id="spinner"></div>
+  </div>
+    <!--SPINNER END-->
+
+  <!-- SEARCH RESULTS-->
+  <div id="serachResults" class="mb-5 d-none price-details-padding">
+    <div class="d-flex flex-row search-result-margin">
+      <div ><!--SEARCH RESULTS HOME ICON-->
+        <svg onclick="goToHomePage()" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house"
+          viewBox="0 0 16 16">
+          <path
+            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+        </svg>
+      </div>
+      <div class="mr-3 ml-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+        </svg>
+      </div>
+      <p>Search Results</p>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="d-flex flex-row inputs-bg-container2"><!--HOME BG IMAGE INPUTS BG CONTAINER-->
+        <!--LOCATION INPUTS-->
+        <div class="d-flex flex-column">
+          <label for="setLocation" class="label-text">Select Location</label>
+          <div class="pl-2 location-white-bg">
+          <select id="setLocation" class="form-control input-icon">
+            <option value="Select Location" selected>Select Location</option>
+            <option value="Kondapur" >Kondapur</option>
+            <option value="Jubilee Hills">Jubilee Hills</option>
+            <option value="Hitech City">Hitech City</option>
+            <option value="Banjara Hills">Banjara Hills</option>
+            <option value="Gachibowli">Gachibowli</option>
+          </select>
+        </div>
+        <p id="locationWarningText" class="text-danger bg-white mt-1 d-none text-warning-size">*Please select location</p>
+        </div>
+        <!--LOCATION INPUTS END-->
+
+        <!--SELECT STAY TYPE INPUTS-->
+        <div class="d-flex flex-column">
+          <label for="status" class="label-text">Select Stay Type</label>
+          
+          <select id="status" class="form-control input-icon2">
+            <option value="Select Stay Type" selected>Select Stay Type</option>
+            <option value="Premier Room">Premier Room</option>
+            <option value="One-bedroom Suite">One-bedroom Suite</option>
+            <option value="Two-bedroom Suite">Two-bedroom Suite</option>
+            <option value="Three-bedroom Apartment">Three-bedroom Apartment</option>
+            <option value="Four-bedroom Apartment">Four-bedroom Apartment</option>
+            <option value="Studio Exclusive">Studio Exclusive</option>
+            <option value="One-bedroom Suite Supreme">One-bedroom Suite Supreme</option>
+            <option value="Studio Supreme">Studio Supreme</option>
+            <option value="Excecutive Room">Excecutive Room</option>
+          </select>
+          <p id="stayTypeWarningText" class="text-danger bg-white mt-1 d-none text-warning-size">*Please select stayType</p>
+        </div>
+        <!--SELECT STAY TYPE INPUTS END-->
+        <!---->
+        <div class="d-flex flex-column">
+          <label for="selectDate" class="label-text">Check In - Check Out</label>
+          <input id="dateInput"  type="date" min="" class="input-field2 input-icon3" ></input>
+          
+        </div>
+        <div class="d-flex flex-column">
+          <label for="members" class="label-text">Guests</label>
+          <input id="members" type="text" class="input-icon4" value placeholder="Room2 - Adult2 - 1Child"></input>
+        </div>
+        <button onclick="findFunction()" class="input-button">Find <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+            </svg></span></button>
+      </div><!--HOME BG IMAGE INPUTS BG CONTAINER END-->
+    </div>
 
 
+    <!--searchResults bottoms text and cards-->
+    <div>
+      <h2 id="serachResultsLocationName" class="search-result-margin"></h2>
+      <div class="w-50 ">
+        <p onclick="priceDetailsFunction()">
+        <img src="https://images.wallpaperscraft.com/image/single/room_bed_comfort_64345_1366x768.jpg"
+              class="kondapur-premier-room-search-image" />
+        </p>
+      <div class="d-flex flex-row"> 
+        <p onclick="priceDetailsFunction()" class="w-75 search-font">Premier Room, <br/>
+          Skyla Studios & Suites, Kothaguda, <br/>
+          Kondapur
+        </p>
+        <div>
+          <p onclick="priceDetailsFunction()" class="text-danger search-font">$100</p>
+         <p>Per Night</p>
+        </div>
+      </div>
+    </div>
+      
+    </div>
+    </div>
+    <!-- SEARCH RESULTS END-->
 
+    <!--PRICE DETAILS-->
+    <div id="priceDetailsPage" class="d-none price-details-padding">
+      <div class="d-flex flex-row search-result-margin">
+        <div ><!--SEARCH RESULTS HOME ICON-->
+          <svg onclick="goToHomePage()" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house"
+            viewBox="0 0 16 16">
+            <path
+              d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+          </svg>
+        </div>
+        <div class="mr-3 ml-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+          </svg>
+        </div>
+        <p>Kondapur</p>
+        <div class="mr-3 ml-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+          </svg>
+        </div>
+        <p>Premier Room - Skyla Studios & Suites (Kothaguda, Kondapur)</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="d-flex flex-row inputs-bg-container2"><!--HOME BG IMAGE INPUTS BG CONTAINER-->
+          <!--LOCATION INPUTS-->
+          <div class="d-flex flex-column">
+            <label for="setLocation" class="label-text">Select Location</label>
+            <div class="pl-2 location-white-bg inputs-width">
+            <select id="setLocation" class="form-control input-icon ">
+              <option value="Select Location" selected>Select Location</option>
+              <option value="Kondapur" >Kondapur</option>
+              <option value="Jubilee Hills">Jubilee Hills</option>
+              <option value="Hitech City">Hitech City</option>
+              <option value="Banjara Hills">Banjara Hills</option>
+              <option value="Gachibowli">Gachibowli</option>
+            </select>
+          </div>
+          <p id="locationWarningText" class="text-danger bg-white mt-1 d-none text-warning-size">*Please select location</p>
+          </div>
+          <!--LOCATION INPUTS END-->
+  
+          <!--SELECT STAY TYPE INPUTS-->
+          <div class="d-flex flex-column">
+            <label for="status" class="label-text">Select Stay Type</label>
+            
+            <select id="status" class="form-control input-icon2 inputs-width">
+              <option value="Select Stay Type" selected>Select Stay Type</option>
+              <option value="Premier Room">Premier Room</option>
+              <option value="One-bedroom Suite">One-bedroom Suite</option>
+              <option value="Two-bedroom Suite">Two-bedroom Suite</option>
+              <option value="Three-bedroom Apartment">Three-bedroom Apartment</option>
+              <option value="Four-bedroom Apartment">Four-bedroom Apartment</option>
+              <option value="Studio Exclusive">Studio Exclusive</option>
+              <option value="One-bedroom Suite Supreme">One-bedroom Suite Supreme</option>
+              <option value="Studio Supreme">Studio Supreme</option>
+              <option value="Excecutive Room">Excecutive Room</option>
+            </select>
+            <p id="stayTypeWarningText" class="text-danger bg-white mt-1 d-none text-warning-size">*Please select stayType</p>
+          </div>
+          <!--SELECT STAY TYPE INPUTS END-->
+          <!---->
+          <div class="d-flex flex-column">
+            <label for="selectDate" class="label-text">Check In - Check Out</label>
+            <input id="dateInput"  type="date" min="" class="input-field2 input-icon3 inputs-width" ></input>
+            
+          </div>
+          <div class="d-flex flex-column">
+            <label for="members" class="label-text">Guests</label>
+            <input id="members" type="text" class="input-icon4 inputs-width" value placeholder="Room2 - Adult2 - 1Child"></input>
+          </div>
+          <button onclick="findFunction()" class="input-button">Find <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+              </svg></span></button>
+        </div><!--HOME BG IMAGE INPUTS BG CONTAINER END-->
+      </div>
+      <!--carousel-->
+      <div class="d-flex flex-row">
+      <div id="carouselExampleIndicators3" class="carousel slide search-result-margin carousel-width-form" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators3" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators3" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100 border-radius" src="https://w0.peakpx.com/wallpaper/898/522/HD-wallpaper-anime-room-bed-chair-desk-laptop-window.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item border-radius">
+            <img class="d-block w-100" src="https://images.wallpaperscraft.com/image/single/room_bed_comfort_64345_1366x768.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item border-radius">
+            <img class="d-block w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEy9HN1juERu0o2qLjaKv_ywthcbiZrPeKpA&s" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators3" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <!--carousel end-->
+      <!--form-->
+      <div class="form-width bg-border search-result-margin ml-5">
+        <div class="d-flex flex-row space-between pt-2 pr-2 pl-2 font-size-form">
+          <p>Unit 1 - Adult 2 - Child 1</p>
+          <p class="text-danger">View More</p>
+        </div>
+        <hr class="gray-color"/>
+        <div class="d-flex flex-row space-between pr-2 pl-2 font-size-form2">
+          <p class="bold">Premier Room x 1 <br/>
+            x <span class="bold">$</span> 100 x 1 Night
+          </p>
+          <p><span class="bold">$</span> 100</p>
+        </div>
+        <div class="d-flex flex-row space-between pr-2 pl-2 font-size-form2">
+          <p>Total Tariff</p>
+          <p><span class="bold">$</span> 100</p>
+        </div>
+        <div class="d-flex flex-row space-between pr-2 pl-2 ">
+          <p class="tax-size">+ Taxes</p>
+          <p class="font-size-form2"><span>$ </span> 9</p>
+        </div>
+        <hr class="gray-color"/>
+        <div class="d-flex flex-row space-between pr-2 pl-2 font-size-form2">
+          <p class="bold">Grand Total(Inc. Tax)</p>
+          <p class="bold">$ 109</p>
+        </div>
+        <!---->
+        <form class="form-bg">
+          <input id="requestName" type="text" class="form-input-border" placeholder="Full Name"/>
+          <p id="warning1" class="text-warning-size2 d-none">*please enter your name</p>
+          <input id="requestEmail" type="text" class="form-input-border" placeholder="E-mail"/>
+          <p id="warning2" class="text-warning-size2 d-none">*please enter valid email (@gmail.com must)</p>
+          <input id="requestNumber" type="text" class="form-input-border" placeholder="Phone Number"/>
+          <p id="warning3" class="text-warning-size2 d-none">*please enter valid mobile number</p>
+          <button onclick="requestForm()" class="btn btn-danger mt-1">Request for Details</button>
+        </form>
+        <p class="text-danger bold pl-4">Our Guest Policy</p>
+        <!---->
+      </div>
+      <!--form end-->
+    </div>
+    </div>
+    <!--PRICE DETAILS END-->
+
+      <!--ENQUIRY PAGE-->
+    <div id="enquiryPage" class="price-details-padding d-none">
+      <div class="d-flex flex-row search-result-margin">
+        <div ><!--SEARCH RESULTS HOME ICON-->
+          <svg onclick="goToHomePage()" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house"
+            viewBox="0 0 16 16">
+            <path
+              d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+          </svg>
+        </div>
+        <div class="mr-3 ml-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+          </svg>
+        </div>
+        <p>Search Result</p>
+        <div class="mr-3 ml-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+          </svg>
+        </div>
+        <p>Enquiry Page</p>
+      </div>
+      <h5 class="text-danger">Your enquiry has been submitted to SKYLA reservation team,<br/>
+        You can provide additional information in below message box which you think will help us serve you better.
+      </h5>
+      <div class="bg-border mb-5"><!--message box-->
+        <h6 class="pl-3 pt-2">Message Box</h6>
+        <hr class="gray-color"/>
+        <div class="p-5 d-flex flex-row">
+        <input id="userMessage" type="text" class="message-box shadow-sm" placeholder="Please type your text, and SKYLA reservation team will respond at the earliest (You will get an email & SMS notification when they respond)"/>
+          <button class="btn btn-danger ml-3">Send</button>
+      </div>
+      <hr class="gray-color"/>
+      <div id="messagesBox" class="p-5"><!--sent-->
+        <p class="userSent"></p>
+      </div><!--sent end-->
+      </div><!--message box end-->
+      </div>
+       <!--ENQUIRY PAGE END-->
 
     <!--HOME PAGE BOTTOM SECTION ABOUT SKYLA-->
     <div id="homeSectionThree" class="home-page-about-skyla-card ">
