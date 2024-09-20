@@ -59,7 +59,7 @@ findStayNavItemEl.onclick = function(){
     serachResults.classList.add("d-none");
     priceDetailsPage.classList.add("d-none");
     enquiryPage.classList.add("d-none");
-    
+
     homeSectionTwoEl.classList.remove("d-none");
 }
 
@@ -406,6 +406,8 @@ function findFunction(){
             }
             setTimeout(function(){
                 spinnerContainer.style.display = "none";
+                enquiryPage.classList.add("d-none");
+                
                 serachResults.classList.remove("d-none")
             },1000);
             let serachResultsLocationNameEl = document.getElementById("serachResultsLocationName");
@@ -423,6 +425,8 @@ function goToHomePage(){
 
 function priceDetailsFunction(){
     serachResults.classList.add("d-none");   
+    enquiryPage.classList.add("d-none");
+
     priceDetailsPage.classList.remove("d-none");
 }
 
